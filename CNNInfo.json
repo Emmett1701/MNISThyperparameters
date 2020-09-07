@@ -1,0 +1,18 @@
+{
+	"numRepsPerTest": [5],
+	"numCnnLayers" : [2, 3],
+	"CNNLayers":
+	{
+		"actFunction": ["relu"],
+		"numChannels": [32, 64],
+		"dropout": [0, 0.2, 0.4],
+		"batchNormalization": [false, true],
+		"regularization": [false, true]
+	},
+	"numEndingDenseLayers": [1],
+	"DenseLayerOptions":
+	{
+		"actFunction": ["relu"],
+		"numChannels": [32]
+	}
+}
