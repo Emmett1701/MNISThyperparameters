@@ -1,0 +1,40 @@
+Emmett Wainwright
+7/1/20
+Analysis.txt
+
+---Data Augmentation Used---
+Parameters:
+   rotation_range=5,
+   shear_range=.2,
+   zoom_range=.1,
+   width_shift_range=2,
+   height_shift_range=2
+I used relatively mild augmentation to ensure the digits were accurate representations and were legible. I mainly wanted to adjust the images slightly so that they were new without risking significant alterations. I could have probably increased some of the parameters though. For obvious reasons, I didn't use any flips.
+
+---Hyperparameters Tested---
+I tested all combinations of the hyperparameters I entered. I tested with either 2 or 3 CNN layers. These layers were tested with either 32 or 64 channels, 0, 0.2 or 0.4 dropout, and whether or not batch normalization or regularization were used. When regularization was used it was L2 kernal regularization with a regularization factor of 0.01. The number of channels was varied and tested for each combination while all other parameters were tested uniformly accross the network. For example, when a dropout of 0.2 was used all layers used that dropout.
+
+---Outcomes---
+The most accurate network used 3 layers, all with 64 channels and 0.2 dropout. This would seem to suggest that 64 channels is preferable in layers to 32 in this case. A dropout of 0.2 was the middle of the 3 configurations tested, suggesting that dropout is useful but can be damaging if too many neurons are lost. If all other parameters were kept the same as they were in the most accurate test, a dropout of 0.4 was less effective both times the test was run.
+Interestingly enough, neither batch normalization nor regularization seemed to increase neural network effectiveness. They were instead detrimental when all other parameters were kept the same.
+
+---Initial Test---
+Highest accuracy: 0.9951000213623047
+Highest accuracy in this configuration: 
+Channels: 64 Dropout: 0.2 BatchNorm: False Reg: None
+Channels: 64 Dropout: 0.2 BatchNorm: False Reg: None
+Channels: 64 Dropout: 0.2 BatchNorm: False
+Test 1: Best validatation at epoch 9 with loss of 0.02126081846654415 and accuracy 0.9951000213623047
+Test 2: Best validatation at epoch 8 with loss of 0.023042624816298485 and accuracy 0.9940000176429749
+
+---Generation---
+Highest accuracy: 0.9943000078201294
+Highest accuracy in this configuration: 
+Channels: 64 Dropout: 0.2 BatchNorm: False Reg: None
+Channels: 64 Dropout: 0.2 BatchNorm: False Reg: None
+Channels: 64 Dropout: 0.2 BatchNorm: False
+Test 1: Best validatation at epoch 5 with loss of 0.019982323050498962 and accuracy 0.9940000176429749
+Test 2: Best validatation at epoch 9 with loss of 0.022619429975748062 and accuracy 0.9943000078201294
+Test 3: Best validatation at epoch 8 with loss of 0.02035076916217804 and accuracy 0.9939000010490417
+Test 4: Best validatation at epoch 7 with loss of 0.02259105071425438 and accuracy 0.9936000108718872
+Test 5: Best validatation at epoch 8 with loss of 0.023212673142552376 and accuracy 0.9934999942779541
